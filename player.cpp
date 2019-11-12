@@ -1,5 +1,6 @@
 #include "player.h"
 #include "card.h"
+#include "deck.h"
 #include <cstdlib>
 #include <string>
 #include <vector>
@@ -53,7 +54,13 @@ bool Player::rankInHand(Card c) const{
 
 Card Player::chooseCardFromHand() const{
 
-    return myHand[rand()%getHandSize()];
+    int randNum;
+    int sizeOfHand=myHand.size();
+    if(sizeOfHand==0){
+        sizeOfHand++;
+    }
+    randNum=(rand()%sizeOfHand);
+    return myHand[randNum]; // get around mod 0
 }
 
 bool Player::cardInHand(Card c) const{
@@ -107,5 +114,5 @@ int Player::getHandSize() const{
 
 int Player::getBookSize() const{
 
-    return myBook.size();
+    return (myBook.size()/2);
 }

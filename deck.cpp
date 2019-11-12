@@ -13,7 +13,7 @@ using namespace std;
 
 Deck::Deck(){
 
-    myIndex=51;
+    myIndex=52;
     for(int i=0; i<4; i++){
 
         for(int j=ACE; j<=KING;j++){
@@ -45,7 +45,7 @@ Deck::Deck(){
 
 void Deck::shuffle(){
 
-    if(size()==1){
+    if(size()<=1){
         return;
     }
     for(int i=0; i<size()*2; i++){
